@@ -1,93 +1,42 @@
-"use client"
+import { Mail, Linkedin, Github } from 'lucide-react';
 
-import { Mail, Linkedin, Github } from 'lucide-react'
-
+// This is a Server Component.
 export default function ContactSection() {
   return (
-    <section id="contact" className="max-w-6xl mx-auto px-6 py-24 border-t border-white/10">
-      <h2 className="text-4xl md:text-5xl font-bold text-[#EAEAEA] mb-8">
-        Get in Touch
+    <section id="contact" className="mx-auto max-w-3xl px-6 py-24 text-center">
+      <h2 className="mb-4 text-4xl font-bold tracking-tighter text-white md:text-5xl">
+        Let's Connect
       </h2>
-      
-      <p className="text-xl text-[#EAEAEA]/70 mb-12 max-w-2xl leading-relaxed">
-      If you have any inquiries, please feel free to reach out. You can contact me via email at:
+      <p className="mb-10 text-lg text-gray-400">
+        I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out.
       </p>
-      
-      <div className="flex flex-col sm:flex-row gap-6">
-        <a 
-          href="mailto:sheikhabdullah.aka@gmail.com" 
-          className="flex items-center space-x-3 text-[#8A63D2] hover:text-[#8A63D2]/80 transition-colors group"
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="mailto:sheikhabdullah.aka@gmail.com"
+          className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-gray-300 transition-all hover:border-purple-400/50 hover:bg-white/10 hover:text-white"
         >
-          <Mail size={20} className="group-hover:scale-110 transition-transform" />
-          <span className="text-lg">sheikhabdullah.aka@gmail.com</span>
+          <Mail size={18} className="transition-transform group-hover:scale-110" />
+          <span>Email</span>
         </a>
-        
-        <a 
-          href="https://www.linkedin.com/in/sheikh-abdullah-a-33944a280/" 
-          target="_blank" 
+        <a
+          href="https://www.linkedin.com/in/sheikh-abdullah-a-33944a280/"
+          target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center space-x-3 text-[#8A63D2] hover:text-[#8A63D2]/80 transition-colors group"
+          className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-gray-300 transition-all hover:border-purple-400/50 hover:bg-white/10 hover:text-white"
         >
-          <Linkedin size={20} className="group-hover:scale-110 transition-transform" />
-          <span className="text-lg">LinkedIn</span>
-        </a>
-        
-        <a 
-          href="https://github.com/Sheikh162" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex items-center space-x-3 text-[#8A63D2] hover:text-[#8A63D2]/80 transition-colors group"
-        >
-          <Github size={20} className="group-hover:scale-110 transition-transform" />
-          <span className="text-lg">GitHub</span>
-        </a>
-      </div>
-    </section>
-  )
-}
-
-/* 
-"use client"
-
-import { Mail, Linkedin, Github } from 'lucide-react'
-
-export default function ContactSection() {
-  return (
-    <section id="contact" className="max-w-6xl mx-auto px-6 py-24 border-t border-white/10">
-      <h2 className="text-4xl md:text-5xl font-bold text-[#EAEAEA] mb-8">
-        Contact
-      </h2>
-      
-      <div className="flex flex-col sm:flex-row gap-6">
-        <a 
-          href="mailto:sheikhabdullah.aka@gmail.com" 
-          className="flex items-center gap-2 text-[#8A63D2] hover:text-[#8A63D2]/80 transition-colors"
-        >
-          <Mail size={20} />
-          <span>sheikhabdullah.aka@gmail.com</span>
-        </a>
-        
-        <a 
-          href="https://linkedin.com/in/yourprofile" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-[#8A63D2] hover:text-[#8A63D2]/80 transition-colors"
-        >
-          <Linkedin size={20} />
+          <Linkedin size={18} className="transition-transform group-hover:scale-110" />
           <span>LinkedIn</span>
         </a>
-        
-        <a 
-          href="https://github.com/yourusername" 
-          target="_blank" 
+        <a
+          href="https://github.com/Sheikh162"
+          target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-[#8A63D2] hover:text-[#8A63D2]/80 transition-colors"
+          className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-gray-300 transition-all hover:border-purple-400/50 hover:bg-white/10 hover:text-white"
         >
-          <Github size={20} />
+          <Github size={18} className="transition-transform group-hover:scale-110" />
           <span>GitHub</span>
         </a>
       </div>
     </section>
-  )
+  );
 }
-*/

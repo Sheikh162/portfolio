@@ -1,9 +1,12 @@
+// This is a Server Component.
 export default function Footer() {
-    return (
-      <footer className="max-w-6xl mx-auto px-6 py-12 border-t border-white/10">
-        <p className="text-center text-[#EAEAEA]/50">
-          2025. Developed with 💜 by Sheikh
+  return (
+    <footer className="border-t border-white/10 py-8">
+      <div className="mx-auto max-w-6xl px-6 text-center text-sm text-gray-500">
+        <p>
+          &copy; {new Date().getFullYear()} Sheikh Abdullah. All rights reserved.
         </p>
-      </footer>
-    )
-  }
+      </div>
+    </footer>
+  );
+}
