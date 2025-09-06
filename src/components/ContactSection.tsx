@@ -8,7 +8,7 @@ export default function ContactSection() {
         Let's Connect
       </h2>
       <p className="mb-10 text-lg text-muted-foreground">
-        If you have any inquiries, please feel free to reach out. You can contact me via email.
+        If you have any inquiries, please feel free to reach out. You can contact me via:
       </p>
       <div className="flex flex-wrap items-center justify-center gap-4">
         <Button asChild variant="outline">

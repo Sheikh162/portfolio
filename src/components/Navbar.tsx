@@ -8,6 +8,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { LineComponent } from "./LineComponent";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function Navbar() {
   const navLink = [
@@ -27,6 +28,9 @@ export default function Navbar() {
         <div className="hidden md:block">
           <NavigationMenu>
             <NavigationMenuList>
+              <NavigationMenuItem>
+                <ThemeToggle/>
+              </NavigationMenuItem>
               {navLink.map((link) => (
                 <NavigationMenuItem key={link.name}>
                     <NavigationMenuLink href={link.href} className={""/* navigationMenuTriggerStyle() */}>

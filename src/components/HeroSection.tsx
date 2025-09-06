@@ -6,7 +6,7 @@ export default function HeroSection() {
           Hi, I'm Sheikh Abdullah
         </h1>
         <h2 className="font-mono text-xl text-muted-foreground md:text-2xl">
-          20, Full-Stack Dev, i break things, learn fast, and make stuff happen.
+          20, Full-Stack Dev. i break things, learn fast, and make stuff happen.
         </h2>
         <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
           From real-time trading to casualty reporting systems, I build robust, scalable, and efficient solutions that solve real-world problems.
