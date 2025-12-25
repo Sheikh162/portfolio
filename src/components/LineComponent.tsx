@@ -8,6 +8,6 @@ export const LineComponent = () => {
     //useMotionValueEvent(scrollYProgress,'change',(latest)=>{console.log(latest)})
 
   return (
-    <motion.div style = {{scaleX:scrollYProgress/* ,transformOrigin:'0%' */}} className = 'origin-left h-1 bg-primary'></motion.div>
+    <motion.div style = {{scaleX:scrollYProgress/* ,transformOrigin:'0%' */}} className = 'origin-left h-0.5 bg-primary'></motion.div>
   )
 }
