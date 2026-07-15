@@ -14,7 +14,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"; // Assuming you have shadcn dialog
-import { LineComponent } from "./LineComponent";
 
 // Define your navigation links here
 const NAV_LINKS = [
@@ -149,7 +148,7 @@ export default function Navbar() {
           </Dialog>
         </div>
       </div>
-      <LineComponent/>
+      {/* <LineComponent/> */}
     </header>
   );
 }
