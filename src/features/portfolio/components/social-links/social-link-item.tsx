@@ -1,46 +1,49 @@
-import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import type { SocialLink } from "@/features/portfolio/types/social-links";
 
-export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
+export function SocialLinkItem({ icon, iconDark, title, href }: SocialLink) {
   return (
     <a
       className={cn(
-        "group/link flex cursor-pointer items-center gap-4 p-4 pr-2 transition-colors hover:bg-accent/50",
-        // These classes handle the borders between items in the grid
-        "max-sm:screen-line-before max-sm:screen-line-after",
-        "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
+        "group/link flex size-9 items-center justify-center",
+        "border border-edge bg-muted/50 transition-colors hover:bg-accent"
       )}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={title}
     >
-      <div className="relative size-12 shrink-0">
-        {/* Icon Container */}
-        <div className="flex size-full items-center justify-center rounded-xl bg-muted/50">
-             <Image
-              src={icon}
-              alt={title}
-              width={32}
-              height={32}
-              className="size-8"
-              unoptimized // Recommended for SVGs
-            />
-        </div>
-      </div>
-
-      <div className="flex-1">
-        <h3 className="flex items-center font-medium underline-offset-4 group-hover/link:underline">
-          {title}
-        </h3>
-
-        {description && (
-          <p className="text-sm text-muted-foreground line-clamp-1">{description}</p>
-        )}
-      </div>
-
-      <ArrowUpRightIcon className="size-4 text-muted-foreground transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+      <span className="sr-only">{title}</span>
+      {iconDark ? (
+        <>
+          <Image
+            src={icon}
+            alt=""
+            width={18}
+            height={18}
+            className="size-4.5 block dark:hidden"
+            unoptimized
+          />
+          <Image
+            src={iconDark}
+            alt=""
+            width={18}
+            height={18}
+            className="hidden size-4.5 dark:block"
+            unoptimized
+          />
+        </>
+      ) : (
+        <Image
+          src={icon}
+          alt=""
+          width={18}
+          height={18}
+          className="size-4.5"
+          unoptimized
+        />
+      )}
     </a>
   );
 }

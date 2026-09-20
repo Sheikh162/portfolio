@@ -1,85 +1,138 @@
 "use client"
-import { ChevronDownIcon, InfinityIcon } from "lucide-react";
+import { ChevronDownIcon } from "lucide-react";
+import Image from "next/image";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { formatDuration } from "@/lib/duration";
 import { ExperienceIcon } from "./experience-position-icon";
-import { ExperiencePosition } from "../../types/experiences";
+import type { Experience, ExperiencePosition } from "../../types/experiences";
 import { useState } from "react";
 
 export function ExperiencePositionItem({
+  experience,
   position,
 }: {
+  experience: Experience;
   position: ExperiencePosition;
 }) {
   const { start, end } = position.employmentPeriod;
-  const isOngoing = !end;
+  const duration = formatDuration(start, end);
   const [isOpen, setIsOpen] = useState(position.isExpanded || false);
+  const hasDetail =
+    (position.highlights?.length ?? 0) > 0 || (position.skills?.length ?? 0) > 0;
+
+  const header = (
+    <div className="flex items-start gap-3">
+      <div className="min-w-0 flex-1">
+        <h4 className="font-medium leading-snug text-sm sm:text-base">
+          {position.title}
+        </h4>
+        <a
+          href={experience.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-0.5 block truncate text-sm text-muted-foreground hover:underline"
+        >
+          {experience.companyName}
+          {position.employmentType ? ` - ${position.employmentType}` : ""}
+        </a>
+        <div className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
+          <span>{start}</span>
+          <span aria-hidden>-</span>
+          <span className={cn(!end && "font-medium text-foreground")}>
+            {end ?? "Present"}
+          </span>
+          {duration && (
+            <>
+              <span aria-hidden className="text-muted-foreground/50">·</span>
+              <span className="font-mono text-[11px]">{duration}</span>
+            </>
+          )}
+          {position.location && (
+            <>
+              <span aria-hidden className="text-muted-foreground/50">·</span>
+              <span>{position.location}</span>
+            </>
+          )}
+        </div>
+      </div>
+
+      {hasDetail && (
+        <ChevronDownIcon
+          className={cn(
+            "mt-1 size-4 shrink-0 text-muted-foreground transition-transform duration-200",
+            isOpen && "rotate-180"
+          )}
+        />
+      )}
+    </div>
+  );
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-      <div className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background">
-        <CollapsibleTrigger
-          className={cn(
-            "block w-full text-left group",
-            "relative p-2 rounded-lg hover:bg-muted/50 transition-colors"
-          )}
-        >
-          <div className="flex items-center gap-3">
-            <div
-              className={cn(
-                "flex size-8 shrink-0 items-center justify-center rounded-lg",
-                "bg-muted text-muted-foreground",
-                "border border-border"
-              )}
-            >
+      <div className="flex items-start gap-4">
+        {/* Company logo tile */}
+        <div className="relative flex size-10 shrink-0 items-center justify-center border border-border bg-background p-1">
+          {experience.companyLogo ? (
+            <Image
+              src={experience.companyLogo}
+              alt={experience.companyName}
+              width={40}
+              height={40}
+              className="object-contain"
+              unoptimized
+            />
+          ) : (
+            <div className="flex size-full items-center justify-center bg-muted">
               <ExperienceIcon className="size-4" icon={position.icon} />
             </div>
+          )}
+        </div>
 
-            <div className="flex-1">
-              <h4 className="font-medium text-sm sm:text-base">{position.title}</h4>
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <span>{start}</span>
-                  <span>—</span>
-                  {isOngoing ? (
-                    <span className="text-foreground font-medium">Present</span>
-                  ) : (
-                    <span>{end}</span>
-                  )}
-                </div>
-              </div>
-            </div>
+        <div className="min-w-0 flex-1">
+          {hasDetail ? (
+            <CollapsibleTrigger className="group block w-full text-left">
+              {header}
+            </CollapsibleTrigger>
+          ) : (
+            header
+          )}
 
-            <ChevronDownIcon
-              className={cn(
-                "size-4 text-muted-foreground transition-transform duration-200",
-                isOpen && "rotate-180"
+          <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-slide-up data-[state=open]:animate-slide-down">
+            <div className="pt-3 text-sm text-muted-foreground">
+              {position.highlights && position.highlights.length > 0 && (
+                <ul className="space-y-1.5">
+                  {position.highlights.map((highlight, index) => (
+                    <li key={index} className="flex gap-2.5">
+                      <span
+                        aria-hidden
+                        className="mt-[8px] size-1 shrink-0 bg-muted-foreground/60"
+                      />
+                      <span className="text-balance">
+                        {highlight.lead && (
+                          <strong className="font-medium text-foreground">
+                            {highlight.lead}:{" "}
+                          </strong>
+                        )}
+                        {highlight.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               )}
-            />
-          </div>
-        </CollapsibleTrigger>
 
-        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-slide-up data-[state=open]:animate-slide-down">
-          <div className="pl-12 pr-2 pb-2 pt-1 text-sm text-muted-foreground space-y-2">
-            {/* Render Markdown description as simple text with newlines for now */}
-            <div className="whitespace-pre-wrap">{position.description}</div>
-
-            {position.skills && position.skills.length > 0 && (
-              <div className="flex flex-wrap gap-1.5 mt-2">
-                {position.skills.map((skill) => (
-                  <Badge key={skill} variant="outline" className="text-xs font-normal">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            )}
-          </div>
-        </CollapsibleContent>
+              {position.skills && position.skills.length > 0 && (
+                <p className="mt-3 font-mono text-xs text-muted-foreground/80">
+                  {position.skills.join(" / ")}
+                </p>
+              )}
+            </div>
+          </CollapsibleContent>
+        </div>
       </div>
     </Collapsible>
   );

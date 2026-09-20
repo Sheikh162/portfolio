@@ -16,7 +16,7 @@ type ContributionDay = {
 
 export function GitHubContributionFallback() {
   return (
-    <div className="flex h-[160px] w-full flex-col items-center justify-center gap-2 bg-muted/5 text-sm text-muted-foreground animate-pulse rounded-md border border-dashed">
+    <div className="flex h-[160px] w-full flex-col items-center justify-center gap-2 bg-muted/5 text-sm text-muted-foreground animate-pulse rounded-none border border-dashed">
       <div className="size-8 rounded-full border-4 border-t-transparent border-muted-foreground/30 animate-spin" />
       <span>Loading activity...</span>
     </div>

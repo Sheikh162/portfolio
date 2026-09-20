@@ -108,7 +108,7 @@ export default function Navbar() {
             href="https://github.com/sheikh162"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex size-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+            className="inline-flex size-8 items-center justify-center text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
           >
             <GithubIcon className="size-4" />
             <span className="sr-only">GitHub</span>

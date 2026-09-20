@@ -1,14 +1,13 @@
-"use client"
 import { SectionSeparator } from "@/components/ui/section-separator";
 import { Overview } from "@/features/portfolio/components/overview";
 
 
 // Keeping your existing content sections
-import { TeckStack } from "@/features/portfolio/components/tech-stack";
+import { TechStack } from "@/features/portfolio/components/tech-stack";
 import { ProfileHeader } from "@/features/portfolio/components/profile-header";
 import { SocialLinks } from "@/features/portfolio/components/social-links";
 import { Projects } from "@/features/portfolio/components/projects";
-import { Experiences } from "@/features/portfolio/components/experiences";
+import { Education, Experiences } from "@/features/portfolio/components/experiences";
 import { GitHubContributions } from "@/features/portfolio/components/github-contributions";
 
 export default function Home() {
@@ -23,18 +22,21 @@ export default function Home() {
       <SocialLinks />
       <SectionSeparator />
 
-      <TeckStack />
+      <GitHubContributions />
       <SectionSeparator />
 
-      <Projects/>
+      <TechStack />
       <SectionSeparator />
 
       <Experiences />
       <SectionSeparator />
 
-      <GitHubContributions />
+      <Projects />
       <SectionSeparator />
-      
+
+      <Education />
+      <SectionSeparator />
+
     </div>
   );
 }

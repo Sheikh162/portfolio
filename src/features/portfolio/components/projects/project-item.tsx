@@ -1,8 +1,7 @@
 import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link"; // Use Link for internal nav, or <a> for external
+import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -15,56 +14,64 @@ import { Project } from "../../types/projects";
 
 interface ProjectItemProps {
   project: Project;
+  index: number;
 }
 
-export function ProjectItem({ project }: ProjectItemProps) {
+export function ProjectItem({ project, index }: ProjectItemProps) {
   return (
-    <Card className="flex h-full flex-col overflow-hidden transition-all hover:shadow-md">
+    <Card
+      className={cn(
+        "group relative flex h-full flex-col gap-0 overflow-hidden rounded-none",
+        "border-edge py-0 shadow-none",
+        "transition-colors duration-300 hover:border-foreground/25 focus-within:border-foreground/25"
+      )}
+    >
       <Link
         href={project.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block h-full"
+        className="flex h-full flex-col outline-none"
       >
-        <div className="relative aspect-video w-full overflow-hidden border-b border-border">
+        {/* Preview */}
+        <div className="relative aspect-video w-full overflow-hidden border-b border-edge bg-muted">
           {project.image ? (
             <Image
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
             />
           ) : (
-            <div className="flex h-full items-center justify-center bg-muted text-muted-foreground">
-              <span className="text-sm">No Image</span>
+            <div className="flex h-full items-center justify-center font-mono text-xs text-muted-foreground">
+              no preview
             </div>
           )}
         </div>
 
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-base">
-            {project.title}
-            <ArrowUpRightIcon className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
-          </CardTitle>
-          <p className="line-clamp-2 text-sm text-muted-foreground">
-            {project.description}
-          </p>
+        {/* Header: index + title + external link */}
+        <CardHeader className="flex flex-row items-center justify-between gap-3 border-b border-edge/60 px-4 py-3">
+          <div className="flex min-w-0 items-baseline gap-3">
+            <span className="font-mono text-xs text-muted-foreground/70">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <CardTitle className="truncate text-base font-medium">
+              {project.title}
+            </CardTitle>
+          </div>
+          <ArrowUpRightIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </CardHeader>
 
-        <CardContent className="mt-auto">
-          <div className="flex flex-wrap gap-1.5">
-            {project.tags.map((tag) => (
-              <Badge
-                key={tag}
-                variant="secondary"
-                className="rounded-md px-1.5 py-0.5 text-xs font-normal text-muted-foreground"
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
+        <CardContent className="px-4 py-3">
+          <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+            {project.description}
+          </p>
         </CardContent>
+
+        {/* Footer: tags as mono text */}
+        <CardFooter className="mt-auto border-t border-edge/60 px-4 py-2.5 font-mono text-xs text-muted-foreground">
+          <span className="truncate">{project.tags.join(" / ")}</span>
+        </CardFooter>
       </Link>
     </Card>
   );

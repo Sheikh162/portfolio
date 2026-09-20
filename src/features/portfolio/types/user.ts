@@ -6,10 +6,6 @@ export type User = {
   /** Handle/username used in links or mentions */
   username: string;
   gender: "male" | "female" | "non-binary";
-  /** e.g. "he/him", "she/her", "they/them" */
-  bio: string;
-  /** Short phrases rotated in UI (e.g., homepage flip effect) */
-  flipSentences: string[];
   /** General location for display */
   address: string;
   /** E.164 format, base64 encoded */
@@ -20,12 +16,10 @@ export type User = {
   website?: string;
   /** Primary/current role shown on profile */
   jobTitle: string;
-  /** Work history entries */
-  jobs: {
-    title: string;
-    company?: string;
-    website: string;
-  }[];
+  /** External resume (Google Drive or hosted PDF) */
+  resumeUrl: string;
+  /** LeetCode profile URL */
+  leetcodeUrl: string;
   /** Rich about section; supports Markdown */
   about: string;
   /** Public URL to avatar image */

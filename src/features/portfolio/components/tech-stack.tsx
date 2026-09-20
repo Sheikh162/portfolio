@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { TECH_STACK } from "../data/tech-stack"; // Ensure this path matches where you saved the data file
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
 
-export function TeckStack() {
+export function TechStack() {
   return (
     <Panel id="stack">
       <PanelHeader>

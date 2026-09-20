@@ -6,33 +6,17 @@ export const USER = {
   displayName: "Sheikh Abdullah",
   username: "sheikh162",
   gender: "male",
-  bio: "Full-Stack Dev. I break things, learn fast, and make stuff happen.",
-  flipSentences: [
-    "Full-Stack Developer",
-    "Building Scalable Systems",
-  ],
   // Extracted from resume
   address: "Chennai, India",
   email: "c2hlaWtoYWJkdWxsYWguYWthQGdtYWlsLmNvbQ==", // Base64 for sheikhabdullah.aka@gmail.com
   phoneNumber: "OTM2MDE1MzcwNA==", // Base64 for +91 9360153704
   //website: "https://sheikhabdullah.com", // Placeholder if you have 
-  jobTitle: "Full-Stack Developer",
-  
-  // Mapped from "Education" and "Projects" since you are a student/freelancer
-  jobs: [
-    {
-      title: "Full-Stack Developer",
-      //company: "Personal Project",
-      website: "https://github.com/sheikh162", // Link to your github
-    },
-    // {
-    //   title: "Maritime Casualty Reporting System",
-    //   company: "DG Shipping, India",
-    //   website: "#", // Add link if public
-    // }
-  ],
+  jobTitle: "Software Engineer",
+  resumeUrl:
+    "https://drive.google.com/file/d/1mcz80LS0OYmFW7IpFfFXg-viXhFjwbJC/view",
+  leetcodeUrl: "https://leetcode.com/u/fsUKa2l6Z2/",
   about: `
-- **Full-Stack Developer** pursuing B.Tech in Computer Science (IoT) at **Shiv Nadar University Chennai** (CGPA: 8.647).
+- **Full-Stack Developer** pursuing B.Tech in Computer Science (IoT) at **Shiv Nadar University Chennai** (CGPA: 8.53).
 - Specialized in building **scalable, real-time applications** using **Next.js**, **Node.js**, and **Redis**.
 - Experienced in **system architecture**, designing high-performance order matching engines and SOLAS/IMO-compliant reporting systems.
 - Proficient in **containerization (Docker)**, **CI/CD pipelines**, and database optimization with **PostgreSQL** and **TimescaleDB**.

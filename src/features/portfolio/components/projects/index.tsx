@@ -11,8 +11,12 @@ export function Projects() {
 
       <PanelContent>
         <div className="grid gap-4 sm:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <ProjectItem key={project.title} project={project} />
+          {PROJECTS.map((project, index) => (
+            <ProjectItem
+              key={project.title}
+              project={project}
+              index={index}
+            />
           ))}
         </div>
       </PanelContent>

@@ -1,4 +1,5 @@
-import { GlobeIcon, MapPinIcon, UserIcon } from "lucide-react"; // Using UserIcon as generic gender icon replacement
+import { FileTextIcon, MapPinIcon } from "lucide-react";
+import Image from "next/image";
 
 import { USER } from "@/features/portfolio/data/user";
 import { Panel, PanelContent } from "../panel";
@@ -10,7 +11,6 @@ import {
   IntroItemIcon,
   IntroItemLink,
 } from "./intro-item";
-import { JobItem } from "./job-item";
 import { PhoneItem } from "./phone-item";
 
 export function Overview() {
@@ -19,18 +19,9 @@ export function Overview() {
       <h2 className="sr-only">Overview</h2>
 
       <PanelContent className="space-y-2.5">
-        {/* Work History */}
-        {USER.jobs.map((job, index) => (
-          <JobItem
-                key={index}
-                title={job.title}
-                website={job.website} 
-                company={""}          />
-        ))}
-
         {/* Info Grid */}
         <div className="grid gap-x-12 gap-y-2.5 sm:grid-cols-2">
-          
+
           {/* Location */}
           <IntroItem>
             <IntroItemIcon>
@@ -51,7 +42,34 @@ export function Overview() {
           {/* Contact */}
           <PhoneItem phoneNumber={USER.phoneNumber} />
           <EmailItem email={USER.email} />
-          
+
+          {/* Resume */}
+          <IntroItem>
+            <IntroItemIcon>
+              <FileTextIcon />
+            </IntroItemIcon>
+            <IntroItemContent>
+              <IntroItemLink href={USER.resumeUrl}>Resume</IntroItemLink>
+            </IntroItemContent>
+          </IntroItem>
+
+          {/* LeetCode */}
+          <IntroItem>
+            <IntroItemIcon>
+              <Image
+                src="https://cdn.simpleicons.org/leetcode/FFA116"
+                alt=""
+                width={16}
+                height={16}
+                className="size-4"
+                unoptimized
+              />
+            </IntroItemIcon>
+            <IntroItemContent>
+              <IntroItemLink href={USER.leetcodeUrl}>LeetCode</IntroItemLink>
+            </IntroItemContent>
+          </IntroItem>
+
         </div>
       </PanelContent>
     </Panel>

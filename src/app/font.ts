@@ -1,4 +1,4 @@
-import { Inter, IBM_Plex_Mono } from 'next/font/google';
+import { Inter, IBM_Plex_Mono, Newsreader, Geist, Geist_Mono, Playfair_Display } from 'next/font/google';
 
 // Define the primary sans-serif font
 export const inter = Inter({
@@ -13,4 +13,30 @@ export const ibmPlexMono = IBM_Plex_Mono({
   weight: ['400', '500'],
   display: 'swap',
   variable: '--font-ibm-plex-mono',
+});
+
+export const newsreader = Newsreader({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-newsreader',
+});
+
+export const geistSans = Geist({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-geist-sans',
+});
+
+export const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-geist-mono',
+});
+
+export const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-playfair-display',
 });

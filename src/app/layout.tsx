@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/Navbar';
-import { inter, ibmPlexMono } from './font';
+import { inter, ibmPlexMono, newsreader, geistSans, geistMono, playfairDisplay } from './font';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Toaster } from 'sonner';
@@ -25,7 +25,11 @@ export default function RootLayout({
         className={cn(
           "min-h-screen bg-background font-sans text-foreground antialiased overflow-x-hidden",
           inter.variable, 
-          ibmPlexMono.variable
+          ibmPlexMono.variable,
+          newsreader.variable,
+          geistSans.variable,
+          geistMono.variable,
+          playfairDisplay.variable
         )}
       >
         <ThemeProvider
