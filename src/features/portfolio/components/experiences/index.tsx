@@ -9,7 +9,7 @@ export function Experiences() {
   return (
     <Panel id="experience">
       <PanelHeader>
-        <PanelTitle>Experience</PanelTitle>
+        <PanelTitle index="03">Experience</PanelTitle>
       </PanelHeader>
 
       <PanelContent>
@@ -27,7 +27,7 @@ export function Education() {
   return (
     <Panel id="education">
       <PanelHeader>
-        <PanelTitle>Education</PanelTitle>
+        <PanelTitle index="05">Education</PanelTitle>
       </PanelHeader>
 
       <PanelContent>

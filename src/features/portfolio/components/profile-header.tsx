@@ -40,7 +40,7 @@ export function ProfileHeader() {
 
           <div className="border-t border-edge">
             <div className="flex items-center gap-2 pl-4 pt-2">
-              <h1 className="-translate-y-px text-3xl font-semibold">
+              <h1 className="-translate-y-px font-display text-3xl">
                 {USER.displayName}
               </h1>
               <VerifiedIcon
@@ -50,7 +50,7 @@ export function ProfileHeader() {
             </div>
 
             {/* Role */}
-            <p className="px-4 pb-2.5 pt-1.5 text-sm text-muted-foreground">
+            <p className="px-4 pb-2.5 pt-1.5 font-display text-lg italic text-muted-foreground">
               {USER.jobTitle}
             </p>
           </div>

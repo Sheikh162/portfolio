@@ -1,9 +1,9 @@
 "use client"
 import { ChevronDownIcon } from "lucide-react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "motion/react";
 import {
   Collapsible,
-  CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
@@ -102,8 +102,18 @@ export function ExperiencePositionItem({
             header
           )}
 
-          <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-slide-up data-[state=open]:animate-slide-down">
-            <div className="pt-3 text-sm text-muted-foreground">
+          {/* Spring height animation (2026 motion standard) */}
+          <AnimatePresence initial={false}>
+            {isOpen && (
+              <motion.div
+                key="content"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 34 }}
+                className="overflow-hidden"
+              >
+                <div className="pt-3 text-sm text-muted-foreground">
               {position.highlights && position.highlights.length > 0 && (
                 <ul className="space-y-1.5">
                   {position.highlights.map((highlight, index) => (
@@ -130,8 +140,10 @@ export function ExperiencePositionItem({
                   {position.skills.join(" / ")}
                 </p>
               )}
-            </div>
-          </CollapsibleContent>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </Collapsible>

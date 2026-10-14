@@ -1,5 +1,6 @@
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
 import { Panel } from "../panel";
+import { Reveal } from "@/components/motion/reveal";
 import { SocialLinkItem } from "./social-link-item";
 
 export function SocialLinks() {
@@ -8,11 +9,11 @@ export function SocialLinks() {
       <h2 className="sr-only">Social Links</h2>
 
       {/* Compact icon strip */}
-      <div className="flex items-center gap-2 p-3">
+      <Reveal className="flex items-center gap-2 p-3">
         {SOCIAL_LINKS.map((link, index) => (
           <SocialLinkItem key={index} {...link} />
         ))}
-      </div>
+      </Reveal>
     </Panel>
   );
 }

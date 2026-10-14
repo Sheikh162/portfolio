@@ -13,13 +13,14 @@ export function GitHubContributions() {
   useEffect(() => {
     async function fetchData() {
       try {
-        // Fetch the last year of data for your username
-        const res = await fetch("https://github-contributions-api.jogruber.de/v4/sheikh162?y=last");
-        
+        // Same-origin proxy: tries the contributions service server-side,
+        // falls back to GitHub's official events API during outages.
+        const res = await fetch("/api/contributions");
+
         if (!res.ok) throw new Error("Failed to fetch");
-        
+
         const json = await res.json();
-        
+
         // The API returns contributions as an array of days.
         // We just need to ensure the structure matches what graph.tsx expects.
         setData(json.contributions);
@@ -37,7 +38,7 @@ export function GitHubContributions() {
   return (
     <Panel id="contributions">
       <PanelHeader>
-        <PanelTitle>GitHub Contributions</PanelTitle>
+        <PanelTitle index="01">GitHub Contributions</PanelTitle>
       </PanelHeader>
 
       <PanelContent>

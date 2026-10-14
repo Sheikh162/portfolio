@@ -6,7 +6,7 @@ export function Projects() {
   return (
     <Panel id="projects">
       <PanelHeader>
-        <PanelTitle>Projects</PanelTitle>
+        <PanelTitle index="04">Projects</PanelTitle>
       </PanelHeader>
 
       <PanelContent>

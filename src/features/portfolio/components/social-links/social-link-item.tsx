@@ -1,10 +1,13 @@
+"use client"
+
+import { motion } from "motion/react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import type { SocialLink } from "@/features/portfolio/types/social-links";
 
 export function SocialLinkItem({ icon, iconDark, title, href }: SocialLink) {
   return (
-    <a
+    <motion.a
       className={cn(
         "group/link flex size-9 items-center justify-center",
         "border border-edge bg-muted/50 transition-colors hover:bg-accent"
@@ -13,6 +16,8 @@ export function SocialLinkItem({ icon, iconDark, title, href }: SocialLink) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={title}
+      whileHover={{ scale: 1.06 }}
+      transition={{ type: "spring", stiffness: 300, damping: 15 }}
     >
       <span className="sr-only">{title}</span>
       {iconDark ? (
@@ -44,6 +49,6 @@ export function SocialLinkItem({ icon, iconDark, title, href }: SocialLink) {
           unoptimized
         />
       )}
-    </a>
+    </motion.a>
   );
 }

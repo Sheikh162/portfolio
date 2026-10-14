@@ -16,9 +16,31 @@ type ContributionDay = {
 
 export function GitHubContributionFallback() {
   return (
-    <div className="flex h-[160px] w-full flex-col items-center justify-center gap-2 bg-muted/5 text-sm text-muted-foreground animate-pulse rounded-none border border-dashed">
-      <div className="size-8 rounded-full border-4 border-t-transparent border-muted-foreground/30 animate-spin" />
-      <span>Loading activity...</span>
+    <div
+      className="flex flex-col gap-4"
+      aria-busy="true"
+      aria-label="Loading contribution activity"
+    >
+      {/* Header skeleton */}
+      <div className="flex items-center justify-between">
+        <div className="h-4 w-56 bg-muted shimmer" />
+        <div className="h-3 w-24 bg-muted shimmer" />
+      </div>
+
+      {/* Grid skeleton: 26 weeks x 7 days with a single shimmer sweep */}
+      <div className="relative w-fit overflow-hidden py-0.5">
+        <div className="grid grid-flow-col grid-rows-7 gap-[3px]">
+          {Array.from({ length: 26 * 7 }).map((_, i) => (
+            <div key={i} className="size-2.5 bg-muted/60" />
+          ))}
+        </div>
+        <div className="absolute inset-0 shimmer" />
+      </div>
+
+      {/* Legend skeleton */}
+      <div className="flex items-center justify-end">
+        <div className="h-3 w-32 bg-muted shimmer" />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Slot as SlotPrimitive } from "@radix-ui/react-slot";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/reveal";
 
 const Slot = SlotPrimitive;
 
@@ -30,21 +31,39 @@ function PanelHeader({ className, ...props }: React.ComponentProps<"header">) {
 function PanelTitle({
   className,
   asChild = false,
+  index,
+  children,
   ...props
-}: React.ComponentProps<"h2"> & { asChild?: boolean }) {
+}: React.ComponentProps<"h2"> & { asChild?: boolean; index?: string }) {
   const Comp = asChild ? Slot : "h2";
   return (
     <Comp
       data-slot="panel-title"
-      className={cn("text-3xl font-semibold", className)}
+      className={cn("font-display text-3xl sm:text-4xl", className)}
       {...props}
-    />
+    >
+      {index && (
+        <span
+          aria-hidden
+          className="mr-3 align-baseline font-mono text-sm font-normal text-muted-foreground"
+        >
+          {index}
+        </span>
+      )}
+      {children}
+    </Comp>
   );
 }
 
-function PanelContent({ className, ...props }: React.ComponentProps<"div">) {
+function PanelContent({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
-    <div data-slot="panel-body" className={cn("p-4", className)} {...props} />
+    <div data-slot="panel-body" className={cn("p-4", className)} {...props}>
+      <Reveal>{children}</Reveal>
+    </div>
   );
 }
 

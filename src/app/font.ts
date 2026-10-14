@@ -1,42 +1,24 @@
-import { Inter, IBM_Plex_Mono, Newsreader, Geist, Geist_Mono, Playfair_Display } from 'next/font/google';
+import { Inter_Tight, Instrument_Serif, Geist_Mono } from 'next/font/google';
 
-// Define the primary sans-serif font
-export const inter = Inter({
+// Primary sans-serif for body and UI
+export const interTight = Inter_Tight({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-inter-tight',
 });
 
-// Define the monospace font for code and labels
-export const ibmPlexMono = IBM_Plex_Mono({
+// Display serif for headings and the profile name
+export const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
-  weight: ['400', '500'],
-  display: 'swap',
-  variable: '--font-ibm-plex-mono',
-});
-
-export const newsreader = Newsreader({
-  subsets: ['latin'],
+  weight: '400',
   style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-newsreader',
+  variable: '--font-instrument-serif',
 });
 
-export const geistSans = Geist({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-geist-sans',
-});
-
+// Monospace for labels, meta rows and tags
 export const geistMono = Geist_Mono({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-geist-mono',
-});
-
-export const playfairDisplay = Playfair_Display({
-  subsets: ['latin'],
-  style: ['normal', 'italic'],
-  display: 'swap',
-  variable: '--font-playfair-display',
 });
