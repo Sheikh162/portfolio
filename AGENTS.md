@@ -62,8 +62,10 @@ not hardcoded JSX. If you add a field, update the matching `types/*.ts`.
   `text-3xl sm:text-4xl` (36px). Keep new text on this scale.
 - **Layout:** single centered column, `max-w-3xl` (768px), in `src/app/page.tsx`.
 - **Dark mode** defaults to `system`; never force a theme.
-- Section order (in `page.tsx`): Profile → Overview → SocialLinks →
+- Section order (in `page.tsx`): Profile → SocialLinks → Overview →
   GitHubContributions → Stack → Experiences → Projects → Education.
+- Separators: the hatched `SectionSeparator` sits between sections **except**
+  around the social strip, which is boxed by the panel's plain screen lines.
 - Motion: scroll reveals live on body content only (headers stay static);
   springs for height/collapse; respect `prefers-reduced-motion`.
 

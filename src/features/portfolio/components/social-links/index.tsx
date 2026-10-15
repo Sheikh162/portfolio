@@ -5,14 +5,19 @@ import { SocialLinkItem } from "./social-link-item";
 
 export function SocialLinks() {
   return (
-    <Panel className="border-t-0">
+    <Panel>
       <h2 className="sr-only">Social Links</h2>
 
-      {/* Compact icon strip */}
-      <Reveal className="flex items-center gap-2 p-3">
-        {SOCIAL_LINKS.map((link, index) => (
-          <SocialLinkItem key={index} {...link} />
-        ))}
+      {/* Icon strip with subtle label — boxed by the panel's plain screen lines */}
+      <Reveal className="flex items-center justify-between gap-2 px-4 py-4">
+        <div className="flex items-center gap-2">
+          {SOCIAL_LINKS.map((link, index) => (
+            <SocialLinkItem key={index} {...link} />
+          ))}
+        </div>
+        <span className="font-display text-sm italic text-muted-foreground">
+          Follow me
+        </span>
       </Reveal>
     </Panel>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Panel, PanelContent, PanelHeader, PanelTitle } from "../panel";
+import { Panel, PanelContent } from "../panel";
 import { GitHubContributionGraph, GitHubContributionFallback } from "./graph";
 import { Button } from "@/components/ui/button"; // Optional: for a refresh button if desired
 
@@ -37,9 +37,7 @@ export function GitHubContributions() {
 
   return (
     <Panel id="contributions">
-      <PanelHeader>
-        <PanelTitle>GitHub Contributions</PanelTitle>
-      </PanelHeader>
+      <h2 className="sr-only">GitHub contributions</h2>
 
       <PanelContent className="min-h-[240px]">
         {loading ? (

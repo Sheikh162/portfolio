@@ -6,7 +6,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import Link from "next/link";
 
 type ContributionDay = {
   date: string;
@@ -109,20 +108,6 @@ export function GitHubContributionGraph({
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Header */}
-      <div className="flex items-center justify-between px-1 text-base">
-          <span className="font-medium text-foreground">
-            {totalContributions.toLocaleString()} contributions in the last year
-          </span>
-          <Link
-            href="https://github.com/sheikh162"
-            target="_blank"
-            className="text-xs text-muted-foreground hover:text-foreground hover:underline"
-          >
-            View on GitHub
-          </Link>
-      </div>
-
       <div className="flex flex-col gap-2 overflow-x-auto pb-2 scrollbar-none mask-linear-fade">
         {/* Month Labels */}
         <div className="flex text-[10px] text-muted-foreground relative h-4">
@@ -172,17 +157,22 @@ export function GitHubContributionGraph({
         </div>
       </div>
 
-      {/* Legend */}
-      <div className="flex items-center justify-end gap-1 text-[10px] text-muted-foreground px-1">
-        <span>Less</span>
-        <div className="flex gap-[3px]">
-          <div className="size-2.5 rounded-[2px] bg-muted/40" />
-          <div className="size-2.5 rounded-[2px] bg-emerald-200 dark:bg-emerald-900/60" />
-          <div className="size-2.5 rounded-[2px] bg-emerald-300 dark:bg-emerald-700/80" />
-          <div className="size-2.5 rounded-[2px] bg-emerald-400 dark:bg-emerald-600" />
-          <div className="size-2.5 rounded-[2px] bg-emerald-500 dark:bg-emerald-500" />
+      {/* Footer: total (left) + legend (right) */}
+      <div className="flex items-center justify-between gap-4 px-1 text-xs text-muted-foreground">
+        <span className="font-medium text-foreground">
+          {totalContributions.toLocaleString()} contributions in the last year
+        </span>
+        <div className="flex items-center gap-1 text-[10px]">
+          <span>Less</span>
+          <div className="flex gap-[3px]">
+            <div className="size-2.5 rounded-[2px] bg-muted/40" />
+            <div className="size-2.5 rounded-[2px] bg-emerald-200 dark:bg-emerald-900/60" />
+            <div className="size-2.5 rounded-[2px] bg-emerald-300 dark:bg-emerald-700/80" />
+            <div className="size-2.5 rounded-[2px] bg-emerald-400 dark:bg-emerald-600" />
+            <div className="size-2.5 rounded-[2px] bg-emerald-500 dark:bg-emerald-500" />
+          </div>
+          <span>More</span>
         </div>
-        <span>More</span>
       </div>
     </div>
   );
