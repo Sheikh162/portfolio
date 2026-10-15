@@ -6,16 +6,15 @@ export function Projects() {
   return (
     <Panel id="projects">
       <PanelHeader>
-        <PanelTitle index="04">Projects</PanelTitle>
+        <PanelTitle>Projects</PanelTitle>
       </PanelHeader>
 
       <PanelContent>
         <div className="grid gap-4 sm:grid-cols-2">
-          {PROJECTS.map((project, index) => (
+          {PROJECTS.map((project) => (
             <ProjectItem
               key={project.title}
               project={project}
-              index={index}
             />
           ))}
         </div>

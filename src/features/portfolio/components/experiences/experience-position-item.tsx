@@ -59,6 +59,11 @@ export function ExperiencePositionItem({
             </>
           )}
         </div>
+        {position.skills && position.skills.length > 0 && (
+          <p className="mt-1.5 font-mono text-xs text-muted-foreground/80">
+            {position.skills.join(" / ")}
+          </p>
+        )}
       </div>
 
       {hasDetail && (
@@ -122,7 +127,7 @@ export function ExperiencePositionItem({
                         aria-hidden
                         className="mt-[8px] size-1 shrink-0 bg-muted-foreground/60"
                       />
-                      <span className="text-balance">
+                      <span className="text-pretty">
                         {highlight.lead && (
                           <strong className="font-medium text-foreground">
                             {highlight.lead}:{" "}
@@ -133,12 +138,6 @@ export function ExperiencePositionItem({
                     </li>
                   ))}
                 </ul>
-              )}
-
-              {position.skills && position.skills.length > 0 && (
-                <p className="mt-3 font-mono text-xs text-muted-foreground/80">
-                  {position.skills.join(" / ")}
-                </p>
               )}
                 </div>
               </motion.div>

@@ -1,10 +1,13 @@
 import Link from "next/link";
-import { Panel, PanelContent } from "./panel";
+import { Panel } from "./panel";
 
 export function Footer() {
   return (
     <Panel className="border-t-0 pb-4">
-      <PanelContent className="flex flex-col items-center justify-center gap-2 text-center text-xs text-muted-foreground sm:flex-row sm:text-sm">
+      <div
+        data-slot="panel-body"
+        className="flex flex-col items-center justify-center gap-2 p-4 text-center text-xs text-muted-foreground sm:flex-row sm:text-sm"
+      >
         <span>
           &copy; {new Date().getFullYear()} Sheikh Abdullah.
         </span>
@@ -20,7 +23,7 @@ export function Footer() {
             Chánh Đại
           </Link>
         </span>
-      </PanelContent>
+      </div>
     </Panel>
   );
 }

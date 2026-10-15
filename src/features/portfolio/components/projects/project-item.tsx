@@ -1,13 +1,11 @@
 "use client"
 import { motion } from "motion/react";
-import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -16,10 +14,9 @@ import { Project } from "../../types/projects";
 
 interface ProjectItemProps {
   project: Project;
-  index: number;
 }
 
-export function ProjectItem({ project, index }: ProjectItemProps) {
+export function ProjectItem({ project }: ProjectItemProps) {
   return (
     <motion.div
       className="h-full"
@@ -52,39 +49,26 @@ export function ProjectItem({ project, index }: ProjectItemProps) {
             </div>
           )}
 
-          {/* Header: index + title + repo link */}
+          {/* Header: title with tech stack beneath, both left-aligned */}
           <CardHeader
             className={cn(
-              "flex flex-row items-center justify-between gap-3 px-4 py-3",
+              "flex flex-col items-start gap-1 px-4 py-3 text-left",
               project.image && "border-b border-edge/60"
             )}
           >
-            <div className="flex min-w-0 items-baseline gap-3">
-              <span className="font-mono text-xs text-muted-foreground/70">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <CardTitle className="truncate text-base font-medium">
-                {project.title}
-              </CardTitle>
-            </div>
-            <ArrowUpRightIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            <CardTitle className="w-full truncate text-base font-medium">
+              {project.title}
+            </CardTitle>
+            <p className="w-full truncate font-mono text-[11px] text-muted-foreground">
+              {project.tags.join(" / ")}
+            </p>
           </CardHeader>
 
           <CardContent className="px-4 py-3">
             <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
               {project.description}
             </p>
-            {project.metric && (
-              <p className="mt-2 font-mono text-xs text-muted-foreground/80">
-                {project.metric}
-              </p>
-            )}
           </CardContent>
-
-          {/* Footer: tags as mono text */}
-          <CardFooter className="mt-auto border-t border-edge/60 px-4 py-2.5 font-mono text-xs text-muted-foreground">
-            <span className="truncate">{project.tags.join(" / ")}</span>
-          </CardFooter>
         </Link>
       </Card>
     </motion.div>

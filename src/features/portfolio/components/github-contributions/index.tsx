@@ -38,10 +38,10 @@ export function GitHubContributions() {
   return (
     <Panel id="contributions">
       <PanelHeader>
-        <PanelTitle index="01">GitHub Contributions</PanelTitle>
+        <PanelTitle>GitHub Contributions</PanelTitle>
       </PanelHeader>
 
-      <PanelContent>
+      <PanelContent className="min-h-[240px]">
         {loading ? (
           <GitHubContributionFallback />
         ) : error ? (

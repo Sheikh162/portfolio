@@ -110,8 +110,7 @@ export function GitHubContributionGraph({
   return (
     <div className="flex flex-col gap-4">
       {/* Header */}
-      <div className="flex flex-col gap-0.5 px-1">
-        <div className="flex items-center justify-between text-sm">
+      <div className="flex items-center justify-between px-1 text-sm">
           <span className="font-medium text-foreground">
             {totalContributions.toLocaleString()} contributions in the last year
           </span>
@@ -122,10 +121,6 @@ export function GitHubContributionGraph({
           >
             View on GitHub
           </Link>
-        </div>
-        <p className="text-[10px] text-muted-foreground">
-          * Public contributions only 
-        </p>
       </div>
 
       <div className="flex flex-col gap-2 overflow-x-auto pb-2 scrollbar-none mask-linear-fade">

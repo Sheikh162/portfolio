@@ -37,7 +37,7 @@ export const EXPERIENCES: Experience[] = [
           },
         ],
         skills: ["AWS", "Micronaut", "RDS PostgreSQL", "CloudTrail"],
-        isExpanded: false,
+        isExpanded: true,
       },
     ],
   },

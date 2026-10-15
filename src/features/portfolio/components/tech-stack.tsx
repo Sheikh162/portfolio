@@ -12,7 +12,7 @@ export function TechStack() {
   return (
     <Panel id="stack">
       <PanelHeader>
-        <PanelTitle index="02">Stack</PanelTitle>
+        <PanelTitle>Stack</PanelTitle>
       </PanelHeader>
 
       <PanelContent

@@ -1,13 +1,14 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /**
  * Spring-based scroll reveal (2026 motion standard).
  * Fades + rises on first scroll-into-view; renders statically
- * when the visitor prefers reduced motion.
+ * when the visitor prefers reduced motion — or when the element
+ * is already in view on mount (no pointless on-load animation).
  */
 export function Reveal({
   children,
@@ -19,13 +20,29 @@ export function Reveal({
   delay?: number;
 }) {
   const prefersReduced = useReducedMotion();
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [visibleOnMount, setVisibleOnMount] = useState(false);
 
-  if (prefersReduced) {
-    return <div className={className}>{children}</div>;
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisibleOnMount(true);
+    }
+  }, []);
+
+  if (prefersReduced || visibleOnMount) {
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
+    );
   }
 
   return (
     <motion.div
+      ref={ref}
       className={cn(className)}
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}

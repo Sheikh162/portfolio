@@ -31,10 +31,9 @@ function PanelHeader({ className, ...props }: React.ComponentProps<"header">) {
 function PanelTitle({
   className,
   asChild = false,
-  index,
   children,
   ...props
-}: React.ComponentProps<"h2"> & { asChild?: boolean; index?: string }) {
+}: React.ComponentProps<"h2"> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "h2";
   return (
     <Comp
@@ -42,14 +41,6 @@ function PanelTitle({
       className={cn("font-display text-3xl sm:text-4xl", className)}
       {...props}
     >
-      {index && (
-        <span
-          aria-hidden
-          className="mr-3 align-baseline font-mono text-sm font-normal text-muted-foreground"
-        >
-          {index}
-        </span>
-      )}
       {children}
     </Comp>
   );
