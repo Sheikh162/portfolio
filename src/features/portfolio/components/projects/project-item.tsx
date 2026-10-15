@@ -59,13 +59,13 @@ export function ProjectItem({ project }: ProjectItemProps) {
             <CardTitle className="w-full truncate text-base font-medium">
               {project.title}
             </CardTitle>
-            <p className="w-full truncate font-mono text-[11px] text-muted-foreground">
+            <p className="w-full truncate font-mono text-xs text-muted-foreground">
               {project.tags.join(" / ")}
             </p>
           </CardHeader>
 
           <CardContent className="px-4 py-3">
-            <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+            <p className="line-clamp-2 text-base leading-relaxed text-muted-foreground">
               {project.description}
             </p>
           </CardContent>

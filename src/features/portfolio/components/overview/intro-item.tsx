@@ -7,7 +7,7 @@ export function IntroItem({
 }: React.ComponentProps<"div">) {
   return (
     <div
-      className={cn("flex items-center gap-4 font-mono text-sm", className)}
+      className={cn("flex items-center gap-4 font-mono text-base", className)}
       {...props}
     />
   );

@@ -118,7 +118,7 @@ export function ExperiencePositionItem({
                 transition={{ type: "spring", stiffness: 300, damping: 34 }}
                 className="overflow-hidden"
               >
-                <div className="pt-3 text-sm text-muted-foreground">
+                <div className="pt-3 text-base text-muted-foreground">
               {position.highlights && position.highlights.length > 0 && (
                 <ul className="space-y-1.5">
                   {position.highlights.map((highlight, index) => (

@@ -110,7 +110,7 @@ export function GitHubContributionGraph({
   return (
     <div className="flex flex-col gap-4">
       {/* Header */}
-      <div className="flex items-center justify-between px-1 text-sm">
+      <div className="flex items-center justify-between px-1 text-base">
           <span className="font-medium text-foreground">
             {totalContributions.toLocaleString()} contributions in the last year
           </span>
