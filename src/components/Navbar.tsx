@@ -17,8 +17,8 @@ import {
 
 // Define your navigation links here
 const NAV_LINKS = [
-  { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
 ];
 
 export default function Navbar() {

@@ -62,13 +62,24 @@
    pseudo-element escapes to the root stacking context where it paints
    *behind* the container's own `bg-background` — hiding the rule inside the
    column and leaving it visible only in the margins. Painting in normal
-   flow instead keeps the rule continuous from screen edge to screen edge. */
+   flow instead keeps the rule continuous from screen edge to screen edge.
+
+   The top rule is pulled up by one pixel (`-top-px`) so that it lands *on*
+   the bottom rule of the section above rather than directly beneath it.
+   Adjacent sections share their boundary exactly, so without this every such
+   boundary renders two 1px rules side by side and reads as a 2px band. */
 @utility screen-line-before {
-  @apply relative before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-edge;
+  @apply relative before:absolute before:-top-px before:-left-[100vw] before:h-px before:w-[200vw] before:bg-edge;
 }
 
 @utility screen-line-after {
   @apply relative after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-edge;
+}
+
+/* The sticky header is 3.5rem tall (pt-2 + h-12). Anchor jumps stop just below
+   it, otherwise the target section's title is hidden behind the header. */
+html {
+  scroll-padding-top: 3.5rem;
 }
 
 :root {

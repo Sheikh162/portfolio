@@ -5,14 +5,17 @@ import { Reveal } from "@/components/motion/reveal";
 
 const Slot = SlotPrimitive;
 
+/**
+ * The vertical rails belong to the page container (`src/app/page.tsx`), which
+ * sits on exactly the same 1px column as the sticky header. Panels do not draw
+ * their own `border-x`: as a child, that border would land one pixel inside the
+ * container's and the rail would read as a 2px line.
+ */
 function Panel({ className, ...props }: React.ComponentProps<"section">) {
   return (
     <section
       data-slot="panel"
-      className={cn(
-        "screen-line-before screen-line-after border-x border-edge",
-        className
-      )}
+      className={cn("screen-line-before screen-line-after", className)}
       {...props}
     />
   );

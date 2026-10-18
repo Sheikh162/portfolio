@@ -4,7 +4,7 @@ import { VerifiedIcon } from "./verified-icon";
 
 export function ProfileHeader() {
   return (
-    <div className="border-x border-edge bg-background">
+    <div className="bg-background">
       {/* Banner (Twitter-style, 3:1) */}
       <div className="relative aspect-[3/1] w-full overflow-hidden border-b border-edge">
         <FadeImage
