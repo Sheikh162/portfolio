@@ -10,7 +10,7 @@ const USERNAME = "sheikh162";
 const PROXY_URL = `https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`;
 const YEAR_DAYS = 365;
 
-/** Map a raw count to GitHub's 0–4 intensity scale. */
+/** Map a raw count to GitHub's 0-4 intensity scale. */
 function toLevel(count: number): ContributionDay["level"] {
   if (count <= 0) return 0;
   if (count <= 2) return 1;
@@ -43,7 +43,7 @@ function toSorted(map: Map<string, number>): ContributionDay[] {
 
 /**
  * Primary source: community contributions proxy (full trailing year).
- * Server-side fetch — immune to the browser TLS/CORS failures
+ * Server-side fetch, immune to the browser TLS/CORS failures
  * that break direct client calls to this host.
  */
 async function fromProxy(): Promise<ContributionDay[] | null> {
@@ -75,7 +75,7 @@ async function fromProxy(): Promise<ContributionDay[] | null> {
  * Fallback source: GitHub's official public events API.
  * Unauthenticated quota is 60 req/hr per IP (fine with the 6h cache),
  * but a GITHUB_TOKEN env var raises it to 5,000/hr when set.
- * Only covers ~90 days / 300 events, so older months render flat —
+ * Only covers ~90 days / 300 events, so older months render flat,
  * but the panel stays up instead of erroring during proxy outages.
  */
 async function fromGitHubEvents(): Promise<ContributionDay[] | null> {

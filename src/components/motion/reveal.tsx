@@ -7,12 +7,12 @@ import { cn } from "@/lib/utils";
 /**
  * Spring-based scroll reveal (2026 motion standard).
  * Fades + rises on first scroll-into-view; renders statically
- * when the visitor prefers reduced motion — or when the element
+ * when the visitor prefers reduced motion, or when the element
  * is already in view on mount (no pointless on-load animation).
  *
  * The animated branch is gated on `mounted` so that the server and the first
  * client render always emit identical markup. Picking the branch during that
- * first render — from `useReducedMotion` alone — disagrees with the server's
+ * first render (from `useReducedMotion` alone) disagrees with the server's
  * `initial={{ opacity: 0 }}` style, and the stale inline `opacity: 0` survives
  * hydration, leaving reduced-motion visitors with a blank page.
  */

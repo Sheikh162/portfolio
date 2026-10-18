@@ -1,6 +1,6 @@
 import type { Experience } from "../types/experiences";
 
-/** Work history — rendered in the "Experience" panel */
+/** Work history, rendered in the "Experience" panel */
 export const EXPERIENCES: Experience[] = [
   {
     id: "fidelity-internship",
@@ -43,7 +43,7 @@ export const EXPERIENCES: Experience[] = [
   },
 ];
 
-/** Academic history — rendered in the "Education" panel */
+/** Academic history, rendered in the "Education" panel */
 export const EDUCATION: Experience[] = [
   {
     id: "education-1",

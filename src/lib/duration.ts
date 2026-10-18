@@ -4,7 +4,7 @@ const DATE_FORMAT = "MMM yyyy"; // e.g. "May 2025", "Jul 2027"
 
 /**
  * Human-readable duration between two "MMM yyyy" dates, counted inclusively
- * (LinkedIn style: May 2026 – Jul 2026 = 3 mos).
+ * (LinkedIn style: May 2026 - Jul 2026 = 3 mos).
  * Falls back to "now" when `end` is omitted (ongoing).
  *
  * @example formatDuration("May 2026", "Jul 2026") // "3 mos"

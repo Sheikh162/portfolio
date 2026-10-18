@@ -12,8 +12,8 @@ const Slot = SlotPrimitive;
  * container's and the rail would read as a 2px line.
  *
  * Panels also draw only the rule at their *top*. The line below a panel is
- * owned by whatever comes next — the next panel's top rule or the hatch band's
- * top rule — so a boundary is never painted by two elements. See the
+ * owned by whatever comes next (the next panel's top rule or the hatch band's
+ * top rule), so a boundary is never painted by two elements. See the
  * `screen-line-before` note in `globals.css` for why doubles misrender.
  */
 function Panel({ className, ...props }: React.ComponentProps<"section">) {

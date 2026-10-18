@@ -2,7 +2,7 @@ import { USER } from "@/features/portfolio/data/user";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "../panel";
 
 /**
- * "$whoami" — short first-person intro. Copy lives in `data/user.ts`
+ * "$whoami": a short first-person intro. Copy lives in `data/user.ts`
  * (`introBullets`) so it stays a single editable block.
  *
  * The bullets reuse the experience-panel list styling: a 4px square marker and

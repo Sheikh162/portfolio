@@ -5,7 +5,7 @@ import type { TechStackGroup } from "../types/tech-stack";
  * Stack rows, in the order they are displayed.
  *
  * Sourced from the resume's Technical Skills list (Languages, Backend & Cloud,
- * Databases & ORM) plus what this site and its projects actually use — React,
+ * Databases & ORM) plus what this site and its projects actually use: React,
  * Next.js, Tailwind CSS, shadcn/ui, Radix UI, Zod, Prisma, QEMU, Vercel.
  *
  * `theme: true` marks a brand mark that is near-black (or too dark to read) on

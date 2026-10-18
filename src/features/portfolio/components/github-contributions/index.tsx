@@ -36,7 +36,7 @@ export function GitHubContributions() {
   }, []);
 
   return (
-    /* A block inside the "Socials" panel — owns the rule at its top. */
+    /* A block inside the "Socials" panel. Owns the rule at its top. */
     <section id="contributions" className="screen-line-before">
       <h2 className="sr-only">GitHub contributions</h2>
 
