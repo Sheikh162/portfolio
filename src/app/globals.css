@@ -32,6 +32,11 @@
   --font-sans: var(--font-inter-tight), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
   --font-display: var(--font-instrument-serif), Georgia, serif;
+
+  /* Display type tracks tighter than body. Body carries a flat inherited
+     -0.025em (resolved at 16px = -0.4px); display elements re-declare it so it
+     resolves at their own size — ~-0.7px at 36px, ~-0.6px at 30px. */
+  --tracking-display: -0.02em;
   
   --animate-fade-in: fade-in 200ms ease-out;
   @keyframes fade-in {
@@ -82,23 +87,27 @@
 }
 
 .dark {
-  /* Dark Mode */
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.141 0.005 285.823);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.985 0 0);
-  --border: oklch(0.274 0.006 286.033);
+  /* Dark Mode — warm neutral (hue 80) instead of stock cool (hue ~286).
+     Lightness is unchanged, so contrast is identical; only the tint flips from
+     slightly blue to slightly warm. Matches the reference set
+     (leerob rgb(27,26,25) = oklch(0.219 0.003 68),
+      maggieappleton rgb(28,27,24) = oklch(0.222 0.006 92)). */
+  --background: oklch(0.141 0.006 80);
+  --foreground: oklch(0.985 0.002 80);
+  --primary: oklch(0.985 0.002 80);
+  --primary-foreground: oklch(0.141 0.006 80);
+  --secondary: oklch(0.274 0.006 80);
+  --secondary-foreground: oklch(0.985 0.002 80);
+  --muted: oklch(0.274 0.006 80);
+  --muted-foreground: oklch(0.705 0.012 80);
+  --card: oklch(0.21 0.006 80);
+  --card-foreground: oklch(0.985 0.002 80);
+  --border: oklch(0.274 0.006 80);
   --edge: var(--border);
-  --input: oklch(0.274 0.006 286.033);
-  --ring: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.985 0 0);
+  --input: oklch(0.274 0.006 80);
+  --ring: oklch(0.552 0.014 80);
+  --accent: oklch(0.274 0.006 80);
+  --accent-foreground: oklch(0.985 0.002 80);
 }
 
 @layer base {

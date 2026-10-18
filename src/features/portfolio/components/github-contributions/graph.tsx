@@ -136,7 +136,7 @@ export function GitHubContributionGraph({
                     <TooltipTrigger asChild>
                       <div
                         className={cn(
-                          "size-2.5 rounded-[2px] transition-colors",
+                          "size-2.5 rounded-none transition-colors",
                           day.level === 0 && "bg-muted/40",
                           day.level === 1 && "bg-emerald-200 dark:bg-emerald-900/60",
                           day.level === 2 && "bg-emerald-300 dark:bg-emerald-700/80",
@@ -165,11 +165,11 @@ export function GitHubContributionGraph({
         <div className="flex items-center gap-1 text-[10px]">
           <span>Less</span>
           <div className="flex gap-[3px]">
-            <div className="size-2.5 rounded-[2px] bg-muted/40" />
-            <div className="size-2.5 rounded-[2px] bg-emerald-200 dark:bg-emerald-900/60" />
-            <div className="size-2.5 rounded-[2px] bg-emerald-300 dark:bg-emerald-700/80" />
-            <div className="size-2.5 rounded-[2px] bg-emerald-400 dark:bg-emerald-600" />
-            <div className="size-2.5 rounded-[2px] bg-emerald-500 dark:bg-emerald-500" />
+            <div className="size-2.5 rounded-none bg-muted/40" />
+            <div className="size-2.5 rounded-none bg-emerald-200 dark:bg-emerald-900/60" />
+            <div className="size-2.5 rounded-none bg-emerald-300 dark:bg-emerald-700/80" />
+            <div className="size-2.5 rounded-none bg-emerald-400 dark:bg-emerald-600" />
+            <div className="size-2.5 rounded-none bg-emerald-500 dark:bg-emerald-500" />
           </div>
           <span>More</span>
         </div>

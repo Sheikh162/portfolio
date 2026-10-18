@@ -15,7 +15,7 @@ export function SocialLinks() {
             <SocialLinkItem key={index} {...link} />
           ))}
         </div>
-        <span className="font-display text-sm italic text-muted-foreground">
+        <span className="font-display text-lg italic text-muted-foreground">
           Follow me
         </span>
       </Reveal>

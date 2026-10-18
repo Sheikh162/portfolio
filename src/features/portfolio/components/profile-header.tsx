@@ -40,7 +40,7 @@ export function ProfileHeader() {
 
           <div className="border-t border-edge">
             <div className="flex items-center gap-2 pl-4 pt-2">
-              <h1 className="-translate-y-px font-display text-3xl sm:text-4xl">
+              <h1 className="-translate-y-px font-display text-3xl tracking-display sm:text-4xl">
                 {USER.displayName}
               </h1>
               <VerifiedIcon

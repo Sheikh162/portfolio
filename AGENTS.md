@@ -60,8 +60,16 @@ not hardcoded JSX. If you add a field, update the matching `types/*.ts`.
 - **Type scale (matched to reference density):** body `text-base` (16px),
   meta `text-xs` (12px), section titles `text-3xl` (30px), name
   `text-3xl sm:text-4xl` (36px). Keep new text on this scale.
+- **Tracking:** body carries a flat inherited `-0.025em` (resolved at 16px =
+  −0.4px). Display type must re-declare it with the `tracking-display` utility
+  (`-0.02em`, defined in `@theme`) so it resolves against its own size —
+  ≈−0.7px at 36px, ≈−0.6px at 30px. Apply to the name and section titles only;
+  small text keeps the inherited value.
 - **Layout:** single centered column, `max-w-3xl` (768px), in `src/app/page.tsx`.
-- **Dark mode** defaults to `system`; never force a theme.
+- **Dark mode** defaults to `system`; never force a theme. The `.dark` tokens use
+  a **warm** neutral (hue 80), deliberately not the stock cool hue ~286 — this
+  matches the reference set (leerob `#1b1a19`, maggieappleton `#1c1b18`). Any new
+  dark token should stay on that warm hue at the same lightness, so contrast holds.
 - Section order (in `page.tsx`): Profile → SocialLinks → Overview →
   GitHubContributions → Stack → Experiences → Projects → Education.
 - Separators: the hatched `SectionSeparator` sits between sections **except**
