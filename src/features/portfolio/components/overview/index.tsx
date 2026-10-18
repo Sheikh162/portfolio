@@ -15,8 +15,13 @@ import { PhoneItem } from "./phone-item";
 
 export function Overview() {
   return (
-    /* A block inside the "Socials" panel — owns the rule at its top. */
-    <section className="screen-line-before">
+    /*
+     * A block inside the "Socials" panel, directly under its header. It draws
+     * no rule of its own: the line above it is the header's own bottom rule,
+     * and the block below owns the next one. Painting a rule here too would
+     * put two rules on a single boundary.
+     */
+    <section>
       <h2 className="sr-only">Overview</h2>
 
       <PanelContent className="space-y-2.5">
