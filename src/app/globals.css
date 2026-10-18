@@ -64,12 +64,16 @@
    column and leaving it visible only in the margins. Painting in normal
    flow instead keeps the rule continuous from screen edge to screen edge.
 
-   The top rule is pulled up by one pixel (`-top-px`) so that it lands *on*
-   the bottom rule of the section above rather than directly beneath it.
-   Adjacent sections share their boundary exactly, so without this every such
-   boundary renders two 1px rules side by side and reads as a 2px band. */
+   Each boundary is owned by exactly one rule: panels draw only the rule at
+   their top (`screen-line-before`), and the rule underneath a section comes
+   from whatever starts next — the following panel's top rule, or the hatch
+   band's top rule. No boundary is ever painted twice. Two coincident rules do
+   collapse onto one row at integer DPRs, but at fractional device scales
+   (125% / 150% on HiDPI) each snaps independently and the boundary renders
+   two dark device rows instead of one — i.e. a line that reads as twice as
+   thick as every other line on the page. */
 @utility screen-line-before {
-  @apply relative before:absolute before:-top-px before:-left-[100vw] before:h-px before:w-[200vw] before:bg-edge;
+  @apply relative before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-edge;
 }
 
 @utility screen-line-after {

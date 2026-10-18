@@ -10,12 +10,17 @@ const Slot = SlotPrimitive;
  * sits on exactly the same 1px column as the sticky header. Panels do not draw
  * their own `border-x`: as a child, that border would land one pixel inside the
  * container's and the rail would read as a 2px line.
+ *
+ * Panels also draw only the rule at their *top*. The line below a panel is
+ * owned by whatever comes next — the next panel's top rule or the hatch band's
+ * top rule — so a boundary is never painted by two elements. See the
+ * `screen-line-before` note in `globals.css` for why doubles misrender.
  */
 function Panel({ className, ...props }: React.ComponentProps<"section">) {
   return (
     <section
       data-slot="panel"
-      className={cn("screen-line-before screen-line-after", className)}
+      className={cn("screen-line-before", className)}
       {...props}
     />
   );
