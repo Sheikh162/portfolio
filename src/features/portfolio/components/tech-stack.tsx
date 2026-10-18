@@ -1,12 +1,57 @@
 import Image from "next/image";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { TECH_STACK } from "../data/tech-stack"; // Ensure this path matches where you saved the data file
+import { TECH_STACK } from "../data/tech-stack";
+import type { TechStackItem } from "../types/tech-stack";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
+
+const ICON_BASE = "https://cdn.simpleicons.org";
+
+/**
+ * Brand mark for a stack item: a simple-icons SVG, or a monochrome glyph when
+ * the technology has no mark (see `TechStackItem.icon`).
+ */
+function TechStackIcon({ item }: { item: TechStackItem }) {
+  if (item.icon) {
+    const Glyph = item.icon;
+    return <Glyph className="size-3.5 shrink-0" aria-hidden />;
+  }
+
+  const src = `${ICON_BASE}/${item.key}`;
+
+  if (item.theme) {
+    return (
+      <>
+        <Image
+          src={`${src}/white`}
+          alt=""
+          width={16}
+          height={16}
+          className="hidden size-3.5 shrink-0 dark:block"
+          unoptimized
+        />
+        <Image
+          src={src}
+          alt=""
+          width={16}
+          height={16}
+          className="size-3.5 shrink-0 dark:hidden"
+          unoptimized
+        />
+      </>
+    );
+  }
+
+  return (
+    <Image
+      src={src}
+      alt=""
+      width={16}
+      height={16}
+      className="size-3.5 shrink-0"
+      unoptimized
+    />
+  );
+}
 
 export function TechStack() {
   return (
@@ -20,70 +65,47 @@ export function TechStack() {
           // These classes create the subtle dot pattern background
           "[--pattern-foreground:var(--color-primary)]/5 dark:[--pattern-foreground:var(--color-white)]/5",
           "bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center",
-          "bg-background/95" 
+          "bg-background/95",
+          // p-0 lets the row rules run the full width of the panel; the cells
+          // below carry their own padding instead.
+          "p-0"
         )}
       >
-        <ul className="flex flex-wrap gap-4 select-none">
-          {TECH_STACK.map((tech) => {
-            // Construct the CDN URL
-            const baseUrl = `https://cdn.simpleicons.org/${tech.key}`;
+        <ul className="divide-y divide-edge">
+          {TECH_STACK.map((group, index) => (
+            <li
+              key={group.title}
+              className="grid grid-cols-[7.5rem_1fr] items-start sm:grid-cols-[10.5rem_1fr]"
+            >
+              <div className="h-full border-r border-edge px-4 py-3">
+                <span className="font-mono text-xs text-muted-foreground">
+                  <span className="text-muted-foreground/50">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>{" "}
+                  {group.title}
+                </span>
+              </div>
 
-            return (
-              <li key={tech.key} className="flex">
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <a
-                      href={tech.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={tech.title}
-                      className="transition-transform hover:scale-110"
-                    >
-                      {/* LOGIC: 
-                         1. If 'theme: true', we ask CDN for specific colors for dark/light mode.
-                         2. Otherwise, we use the default brand color.
-                      */}
-                      
-                      {tech.theme ? (
-                        <>
-                           {/* Dark Mode: White Icon */}
-                          <Image
-                            src={`${baseUrl}/white`}
-                            alt={`${tech.title} icon`}
-                            width={32}
-                            height={32}
-                            className="hidden dark:block"
-                            unoptimized
-                          />
-                           {/* Light Mode: Default/Black Icon */}
-                          <Image
-                            src={`${baseUrl}`} 
-                            alt={`${tech.title} icon`}
-                            width={32}
-                            height={32}
-                            className="block dark:hidden"
-                            unoptimized
-                          />
-                        </>
-                      ) : (
-                        <Image
-                          src={baseUrl}
-                          alt={`${tech.title} icon`}
-                          width={32}
-                          height={32}
-                          unoptimized
-                        />
-                      )}
-                    </a>
-                  </TooltipTrigger>
-
-                  <TooltipContent>
-                    <p>{tech.title}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </li>
-            );
-          })}
+              <div className="flex flex-wrap items-center gap-2 px-4 py-3">
+                {group.items.map((item) => (
+                  <a
+                    key={item.title}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "inline-flex items-center gap-1.5 border border-edge bg-muted/50 px-2 py-1",
+                      "font-mono text-xs text-muted-foreground transition-colors",
+                      "hover:bg-accent hover:text-foreground"
+                    )}
+                  >
+                    <TechStackIcon item={item} />
+                    {item.title}
+                  </a>
+                ))}
+              </div>
+            </li>
+          ))}
         </ul>
       </PanelContent>
     </Panel>

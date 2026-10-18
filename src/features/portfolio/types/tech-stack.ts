@@ -1,21 +1,35 @@
+import type { LucideIcon } from "lucide-react";
+
 /**
- * A technology item displayed in the Tech Stack section.
- *
- * Icon file resolution:
- * - Default: /public/tech-stack-icons/[key].svg
- * - Themed (when `theme === true`):
- * - Dark:  /public/tech-stack-icons/[key]-dark.svg
- * - Light: /public/tech-stack-icons/[key]-light.svg
+ * A single technology in the Stack section, rendered as a linked chip.
  */
-export type TechStack = {
-  /** Unique identifier used to resolve icon files. */
-  key: string;
-  /** Display name of the technology. */
+export type TechStackItem = {
+  /** Display name. */
   title: string;
-  /** Official website URL. */
+  /** Official website. */
   href: string;
-  /** Category tags used for grouping/filtering. */
-  categories: string[];
-  /** If true, use theme-specific icons for dark/light mode. */
+  /**
+   * simple-icons slug. The brand mark is served from
+   * `https://cdn.simpleicons.org/[key]`.
+   *
+   * Omit when simple-icons has no mark for the technology and supply `icon`
+   * instead.
+   */
+  key?: string;
+  /**
+   * The brand mark is too dark to read against the dark background, so the
+   * white variant is requested in dark mode.
+   */
   theme?: boolean;
+  /** Monochrome glyph used when simple-icons has no mark, e.g. AWS. */
+  icon?: LucideIcon;
+};
+
+/**
+ * One row of the Stack table: a numbered label and the technologies under it.
+ */
+export type TechStackGroup = {
+  /** Row label, e.g. "Backend & Database". */
+  title: string;
+  items: TechStackItem[];
 };
