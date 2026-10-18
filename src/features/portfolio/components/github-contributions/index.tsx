@@ -39,7 +39,7 @@ export function GitHubContributions() {
     <Panel id="contributions">
       <h2 className="sr-only">GitHub contributions</h2>
 
-      <PanelContent className="min-h-[240px]">
+      <PanelContent>
         {loading ? (
           <GitHubContributionFallback />
         ) : error ? (
