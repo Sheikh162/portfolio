@@ -14,10 +14,11 @@ export default function Home() {
   return (
     <div className="mx-auto min-h-screen max-w-3xl border-x border-edge bg-background">
       <ProfileHeader />
+      <SectionSeparator />
+
       <SocialLinks />
 
       <Overview />
-      <SectionSeparator />
 
       <GitHubContributions />
       <SectionSeparator />
@@ -32,8 +33,6 @@ export default function Home() {
       <SectionSeparator />
 
       <Education />
-      <SectionSeparator />
-
     </div>
   );
 }

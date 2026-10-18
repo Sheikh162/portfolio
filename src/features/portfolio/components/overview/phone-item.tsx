@@ -27,7 +27,7 @@ export function PhoneItem({ phoneNumber }: { phoneNumber: string }) {
         {/* 3. Show "Loading..." initially, then switch to the link */}
         {decodedPhone ? (
           <a
-            href={`tel:${decodedPhone}`}
+            href={`tel:${decodedPhone.replace(/[^\d+]/g, "")}`}
             className="hover:underline hover:underline-offset-4"
           >
             {decodedPhone}

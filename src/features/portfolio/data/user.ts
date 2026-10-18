@@ -9,7 +9,7 @@ export const USER = {
   // Extracted from resume
   address: "Chennai, India",
   email: "c2hlaWtoYWJkdWxsYWguYWthQGdtYWlsLmNvbQ==", // Base64 for sheikhabdullah.aka@gmail.com
-  phoneNumber: "OTM2MDE1MzcwNA==", // Base64 for +91 9360153704
+  phoneNumber: "KzkxIDkzNjAxNTM3MDQ=", // Base64 for +91 9360153704
   //website: "https://sheikhabdullah.com", // Placeholder if you have 
   jobTitle: "Software Engineer",
   resumeUrl:
