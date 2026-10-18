@@ -60,17 +60,9 @@ export function TechStack() {
         <PanelTitle>Stack</PanelTitle>
       </PanelHeader>
 
-      <PanelContent
-        className={cn(
-          // These classes create the subtle dot pattern background
-          "[--pattern-foreground:var(--color-primary)]/5 dark:[--pattern-foreground:var(--color-white)]/5",
-          "bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center",
-          "bg-background/95",
-          // p-0 lets the row rules run the full width of the panel; the cells
-          // below carry their own padding instead.
-          "p-0"
-        )}
-      >
+      {/* p-0 lets the row rules run the full width of the panel; the cells
+          below carry their own padding instead. */}
+      <PanelContent className="p-0">
         <ul className="divide-y divide-edge">
           {TECH_STACK.map((group, index) => (
             <li
