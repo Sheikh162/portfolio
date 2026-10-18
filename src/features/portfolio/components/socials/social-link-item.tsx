@@ -9,7 +9,7 @@ export function SocialLinkItem({ icon, iconDark, title, href }: SocialLink) {
   return (
     <motion.a
       className={cn(
-        "group/link flex size-9 items-center justify-center",
+        "group/link flex size-7 items-center justify-center",
         "border border-edge bg-muted/50 transition-colors hover:bg-accent"
       )}
       href={href}
