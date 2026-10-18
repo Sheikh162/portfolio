@@ -1,14 +1,19 @@
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
-import { Panel } from "../panel";
 import { Reveal } from "@/components/motion/reveal";
 import { SocialLinkItem } from "./social-link-item";
 
+/**
+ * Social icon strip — the first block inside the "Socials" panel.
+ *
+ * It draws no rule of its own: the line above it is the panel header's bottom
+ * rule, and the block below owns the next one. Painting a rule here as well
+ * would put two rules on one boundary (see `screen-line-before` in globals.css).
+ */
 export function SocialLinks() {
   return (
-    <Panel>
-      <h2 className="sr-only">Social Links</h2>
+    <>
+      <h2 className="sr-only">Social links</h2>
 
-      {/* Icon strip with subtle label — boxed by the panel's plain screen lines */}
       <Reveal className="flex items-center justify-between gap-2 px-4 py-4">
         <div className="flex items-center gap-2">
           {SOCIAL_LINKS.map((link, index) => (
@@ -16,9 +21,9 @@ export function SocialLinks() {
           ))}
         </div>
         <span className="font-display text-lg italic text-muted-foreground">
-          Follow me
+          Socials
         </span>
       </Reveal>
-    </Panel>
+    </>
   );
 }

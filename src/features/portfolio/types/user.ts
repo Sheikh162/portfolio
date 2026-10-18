@@ -22,6 +22,11 @@ export type User = {
   leetcodeUrl: string;
   /** Rich about section; supports Markdown */
   about: string;
+  /**
+   * Short first-person intro rendered as bullets in the "$whoami" panel.
+   * Each bullet is an optional bold lead-in plus body copy.
+   */
+  introBullets: { lead?: string; text: string }[];
   /** Public URL to avatar image */
   avatar: string;
   /** Open Graph image URL for social sharing */

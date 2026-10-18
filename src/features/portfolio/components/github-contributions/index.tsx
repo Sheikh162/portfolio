@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Panel, PanelContent } from "../panel";
+import { PanelContent } from "../panel";
 import { GitHubContributionGraph, GitHubContributionFallback } from "./graph";
 import { Button } from "@/components/ui/button"; // Optional: for a refresh button if desired
 
@@ -36,7 +36,8 @@ export function GitHubContributions() {
   }, []);
 
   return (
-    <Panel id="contributions">
+    /* A block inside the "Socials" panel — owns the rule at its top. */
+    <section id="contributions" className="screen-line-before">
       <h2 className="sr-only">GitHub contributions</h2>
 
       <PanelContent>
@@ -50,6 +51,6 @@ export function GitHubContributions() {
           <GitHubContributionGraph data={data} />
         )}
       </PanelContent>
-    </Panel>
+    </section>
   );
 }

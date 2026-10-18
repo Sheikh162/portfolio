@@ -2,7 +2,7 @@ import { FileTextIcon, MapPinIcon } from "lucide-react";
 import Image from "next/image";
 
 import { USER } from "@/features/portfolio/data/user";
-import { Panel, PanelContent } from "../panel";
+import { PanelContent } from "../panel";
 import { CurrentLocalTimeItem } from "./current-local-time-item";
 import { EmailItem } from "./email-item";
 import {
@@ -15,7 +15,8 @@ import { PhoneItem } from "./phone-item";
 
 export function Overview() {
   return (
-    <Panel className="border-t-0">
+    /* A block inside the "Socials" panel — owns the rule at its top. */
+    <section className="screen-line-before">
       <h2 className="sr-only">Overview</h2>
 
       <PanelContent className="space-y-2.5">
@@ -72,6 +73,6 @@ export function Overview() {
 
         </div>
       </PanelContent>
-    </Panel>
+    </section>
   );
 }
