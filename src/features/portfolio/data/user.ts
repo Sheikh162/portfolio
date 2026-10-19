@@ -1,6 +1,6 @@
 import { User } from "../types/user";
 
-export const USER = {
+export const USER: User = {
   firstName: "Sheikh",
   lastName: "Abdullah",
   displayName: "Sheikh Abdullah",
@@ -15,20 +15,16 @@ export const USER = {
   resumeUrl:
     "https://drive.google.com/file/d/1mcz80LS0OYmFW7IpFfFXg-viXhFjwbJC/view",
   leetcodeUrl: "https://leetcode.com/u/fsUKa2l6Z2/",
-  // DRAFT: first pass at the "$whoami" intro, assembled from the resume and
-  // the rest of `data/*.ts`. Rewrite freely; keep claims grounded in a source.
+  // The "$whoami" intro, in Sheikh's own words.
   introBullets: [
     {
-      lead: "Who I am",
-      text: "a Software Engineer based in Chennai, India. I build full-stack web applications, mostly around real-time data, caching, and performance.",
+      text: "I'm Sheikh, a software engineer who's curious about how tech works under the hood and trying out niche tools.",
     },
     {
-      lead: "Recently",
-      text: "a Software Engineer Intern at Fidelity Investments (May 2026 - Jul 2026). I built an idle-resource detection service across 6 AWS services and cut dashboard query latency from 85s to 25s.",
+      text: "From flashing custom ROMs back in '22 to running Linux as my daily driver, I've always loved messing around with things to see how they work.",
     },
     {
-      lead: "Currently",
-      text: "in my final year of B.Tech in Computer Science (Internet of Things) at Shiv Nadar University Chennai, with a CGPA of 8.53.",
+      text: "I enjoy breaking things apart and building them back better, tweaking and building unique setups.",
     },
   ],
   avatar: "https://github.com/sheikh162.png", 
@@ -45,4 +41,4 @@ export const USER = {
     "real-time systems"
   ],
   dateCreated: "2023-08-01", 
-} satisfies User;
+};
